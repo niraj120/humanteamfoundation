@@ -119,6 +119,47 @@
     });
   }
 
+  /* ---- Donation form -> receipt flow ---- */
+  var dform = document.getElementById("donationForm");
+  if (dform) {
+    dform.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var val = function (id) { var el = document.getElementById(id); return el ? el.value.trim() : ""; };
+      var data = {
+        amount: parseInt(val("customAmount") || "0", 10) || 0,
+        name: val("dname"),
+        email: val("demail"),
+        phone: val("dphone"),
+        message: val("dmsg")
+      };
+      if (!data.name || !data.amount || data.amount < 1) {
+        var s0 = document.getElementById("formStatus");
+        if (s0) s0.textContent = "Please enter your name and a valid amount.";
+        return;
+      }
+      try { sessionStorage.setItem("htf_donation", JSON.stringify(data)); } catch (err) {}
+      var status = document.getElementById("formStatus");
+      if (status) status.textContent = "Generating your receipt…";
+      var go = function () { window.location.href = "thank-you.html"; };
+      try {
+        fetch("process-donation.php", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data)
+        })
+          .then(function (r) { return r.json(); })
+          .then(function (res) {
+            if (res && res.receipt) {
+              data.receipt = res.receipt;
+              try { sessionStorage.setItem("htf_donation", JSON.stringify(data)); } catch (err) {}
+            }
+            go();
+          })
+          .catch(go);
+      } catch (err) { go(); }
+    });
+  }
+
   /* ---- Footer year ---- */
   var year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();

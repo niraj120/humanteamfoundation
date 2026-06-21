@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thank You — Human Team Foundation</title>
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    .ty-hero { text-align:center; padding:3.5rem 0 2rem; }
+    .ty-check { width:88px; height:88px; margin:0 auto 1.2rem; border-radius:50%; background:var(--brand-light); display:grid; place-items:center; animation:pop .5s ease; }
+    .ty-check svg { width:48px; height:48px; color:var(--brand); }
+    @keyframes pop { 0%{transform:scale(.5);opacity:0} 60%{transform:scale(1.1)} 100%{transform:scale(1);opacity:1} }
+    .receipt {
+      max-width:640px; margin:0 auto; background:#fff; border:1px solid var(--line);
+      border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden;
+    }
+    .receipt-top { background:linear-gradient(120deg,var(--brand-darker),var(--brand)); color:#fff; padding:1.6rem 2rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:.5rem; }
+    .receipt-top h3 { color:#fff; margin:0; }
+    .receipt-top .rno { font-size:.85rem; opacity:.9; }
+    .receipt-body { padding:2rem; }
+    .rrow { display:flex; justify-content:space-between; padding:.7rem 0; border-bottom:1px dashed var(--line); font-size:.96rem; }
+    .rrow span:first-child { color:var(--muted); }
+    .rrow span:last-child { font-weight:600; color:var(--ink); text-align:right; }
+    .ramount { background:var(--brand-tint); border-radius:var(--radius-sm); padding:1.2rem; text-align:center; margin:1.3rem 0; }
+    .ramount .big { font-family:var(--font-head); font-weight:700; font-size:2rem; color:var(--brand-dark); }
+    .ramount .words { font-size:.85rem; color:var(--muted); margin-top:.2rem; text-transform:capitalize; }
+    .ty-actions { display:flex; gap:.8rem; flex-wrap:wrap; justify-content:center; margin-top:1.8rem; }
+    .channel-note { display:flex; gap:.8rem; align-items:flex-start; background:#ecfeff; border:1px solid #a5f3fc; color:#155e75; padding:1rem 1.2rem; border-radius:var(--radius-sm); margin:1.5rem auto 0; max-width:640px; font-size:.93rem; }
+    .channel-note svg { width:22px; height:22px; flex:none; margin-top:2px; }
+    .wa { background:#25D366 !important; color:#fff !important; box-shadow:0 8px 20px rgba(37,211,102,.3) !important; }
+    .wa:hover { background:#1da851 !important; }
+    .empty-state { text-align:center; padding:4rem 1rem; }
+  </style>
+</head>
+<body>
+
+  <!-- ===== Header ===== -->
+  <header class="site-header" id="header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand">
+        <span class="brand-mark">HTF</span>
+        <span class="brand-text">Human Team<strong>Foundation</strong></span>
+      </a>
+      <nav class="nav" id="nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="donate.html" class="btn btn-accent btn-sm nav-donate">Donate Now</a>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+
+        <!-- Shown when we have donation data -->
+        <div id="receiptWrap" style="display:none">
+          <div class="ty-hero">
+            <div class="ty-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></div>
+            <span class="eyebrow">Donation Received</span>
+            <h1>Thank you, <span id="r-firstname">friend</span>! 🙏</h1>
+            <p class="narrow" style="margin:.6rem auto 0; color:var(--muted)">Your kindness is already making a difference. Here is your donation receipt.</p>
+          </div>
+
+          <!-- Receipt -->
+          <div class="receipt" id="receiptCard">
+            <div class="receipt-top">
+              <div>
+                <h3>Donation Receipt</h3>
+                <div class="rno">Receipt No: <strong id="r-receipt">—</strong></div>
+              </div>
+              <div style="text-align:right">
+                <div style="font-family:var(--font-head);font-weight:700;font-size:1.05rem">Human Team Foundation</div>
+                <div style="font-size:.8rem;opacity:.9">Reg. No. XXXXXX · 80G &amp; 12A</div>
+              </div>
+            </div>
+            <div class="receipt-body">
+              <div class="rrow"><span>Date</span><span id="r-date">—</span></div>
+              <div class="rrow"><span>Received From</span><span id="r-name">—</span></div>
+              <div class="rrow"><span>Email</span><span id="r-email">—</span></div>
+              <div class="rrow"><span>Phone</span><span id="r-phone">—</span></div>
+              <div class="ramount">
+                <div class="big" id="r-amount">₹0</div>
+                <div class="words" id="r-words">—</div>
+              </div>
+              <p style="font-size:.85rem;color:var(--muted);text-align:center">This donation is eligible for tax exemption under Section 80G of the Income Tax Act.</p>
+            </div>
+          </div>
+
+          <!-- email/whatsapp note -->
+          <div class="channel-note">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg>
+            <div>A copy of this receipt will be shared with you on <strong>Email</strong> and <strong>WhatsApp</strong>. Your official <strong>80G certificate (Form 10BE)</strong> will be issued after our annual filing. For anything urgent, just message us.</div>
+          </div>
+
+          <!-- actions -->
+          <div class="ty-actions">
+            <button id="downloadReceipt" class="btn btn-brand btn-lg">⬇ Download Receipt (PDF)</button>
+            <a id="whatsappShare" class="btn wa btn-lg" target="_blank" rel="noopener">Share on WhatsApp</a>
+            <a id="download80g" class="btn btn-outline btn-lg" href="assets/docs/80G-certificate.pdf" target="_blank" rel="noopener">⬇ Download 80G Certificate</a>
+          </div>
+          <p id="g80note" style="text-align:center;color:var(--muted);font-size:.85rem;margin-top:1rem;display:none">
+            Your 80G certificate will be emailed to you shortly.
+          </p>
+
+          <div class="center" style="margin-top:2.5rem">
+            <a href="index.html" class="btn btn-ghost-light" style="color:var(--brand);border-color:var(--brand)">Back to Home</a>
+          </div>
+        </div>
+
+        <!-- Shown when opened directly (no donation data) -->
+        <div id="emptyState" class="empty-state" style="display:none">
+          <div class="ty-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 00-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 000-7.8z"/></svg></div>
+          <h1>Make a Donation</h1>
+          <p style="color:var(--muted);margin:.6rem 0 1.5rem">Looks like you arrived here directly. Head over to our donation page to contribute.</p>
+          <a href="donate.html" class="btn btn-accent btn-lg">Go to Donate Page</a>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom" style="border:0;justify-content:center">
+        <span>&copy; <span id="year"></span> Human Team Foundation. All rights reserved. &nbsp;|&nbsp; Reg. No. XXXXXX · 80G &amp; 12A</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/receipt.js"></script>
+</body>
+</html>

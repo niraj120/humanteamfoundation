@@ -6,4 +6,6 @@ deployment:
     - /bin/cp -f about.html $DEPLOYPATH
     - /bin/cp -f projects.html $DEPLOYPATH
     - /bin/cp -f donate.html $DEPLOYPATH
+    - /bin/cp -f thank-you.html $DEPLOYPATH
+    - /bin/cp -f process-donation.php $DEPLOYPATH
     - /bin/cp -Rf assets $DEPLOYPATH

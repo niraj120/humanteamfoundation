@@ -6,3 +6,7 @@
 Thumbs.db
 *.log
 node_modules/
+
+# build artifacts
+htf-site.zip
+*.zip

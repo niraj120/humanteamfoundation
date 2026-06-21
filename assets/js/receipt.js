@@ -6,7 +6,7 @@
 var HTF_CONFIG = {
   orgName: "Human Team Foundation",
   regNo: "XXXXXX",
-  whatsappNumber: "919999999999",   // trust WhatsApp number, country code, no + or spaces
+  whatsappNumber: "919769406488",   // trust WhatsApp number, country code, no + or spaces
   certPath: "assets/docs/80G-certificate.pdf"
 };
 

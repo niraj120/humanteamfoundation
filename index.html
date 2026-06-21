@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Human Team Foundation</title>
+  <meta name="description" content="Human Team Foundation — building stronger communities together." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#" class="brand">Human Team<span>Foundation</span></a>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#work">Our Work</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <h1>Building stronger communities, together.</h1>
+        <p>The Human Team Foundation supports people and projects that make a
+           real difference in everyday lives.</p>
+        <a href="#contact" class="btn">Get Involved</a>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section">
+      <div class="container">
+        <h2>About Us</h2>
+        <p>We are a community-driven foundation focused on bringing people
+           together to solve shared challenges. Our mission is simple: empower
+           teams of humans to create lasting, positive change.</p>
+      </div>
+    </section>
+
+    <!-- Work -->
+    <section id="work" class="section section-alt">
+      <div class="container">
+        <h2>Our Work</h2>
+        <div class="cards">
+          <div class="card">
+            <h3>Community Programs</h3>
+            <p>Local initiatives that support education, health, and wellbeing.</p>
+          </div>
+          <div class="card">
+            <h3>Volunteer Network</h3>
+            <p>Connecting passionate people with causes that need them most.</p>
+          </div>
+          <div class="card">
+            <h3>Partnerships</h3>
+            <p>Working alongside organizations to amplify our shared impact.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section">
+      <div class="container">
+        <h2>Contact Us</h2>
+        <p>Want to get involved or learn more? Reach out to us.</p>
+        <form class="contact-form" onsubmit="return handleSubmit(event)">
+          <input type="text" name="name" placeholder="Your name" required />
+          <input type="email" name="email" placeholder="Your email" required />
+          <textarea name="message" placeholder="Your message" rows="4" required></textarea>
+          <button type="submit" class="btn">Send Message</button>
+        </form>
+        <p id="form-status" class="form-status"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Human Team Foundation. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

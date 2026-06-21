@@ -11,7 +11,7 @@ header("Content-Type: application/json; charset=utf-8");
 /* ---- Settings (edit these) ---- */
 $ORG          = "Human Team Foundation";
 $FROM_EMAIL   = "info@humanteamfoundation.in";   // must be an address on your domain
-$ADMIN_EMAIL  = "info@humanteamfoundation.in";   // where you receive donation alerts
+$ADMIN_EMAIL  = "htf.humanteamfoundation@gmail.com";   // where you receive donation alerts
 $REG_NO       = "XXXXXX";
 
 /* ---- Only accept POST ---- */

@@ -73,7 +73,14 @@
     var data = window.HTF_PROJECTS || [];
     if (limit) data = data.slice(0, limit);
     mount.innerHTML = data.map(function (p) {
-      var pct = Math.min(Math.round((p.raised / p.goal) * 100), 100);
+      var progress = "";
+      if (p.goal) {
+        var pct = Math.min(Math.round((p.raised / p.goal) * 100), 100);
+        progress =
+          '<div class="progress"><span style="width:' + pct + '%"></span></div>' +
+          '<div class="progress-meta"><span>Raised <strong>' + fmt(p.raised) + '</strong></span>' +
+          '<span>Goal ' + fmt(p.goal) + '</span></div>';
+      }
       return '' +
         '<article class="project-card reveal">' +
           '<div class="project-media" style="background-image:url(\'' + p.image + '\')">' +
@@ -82,10 +89,8 @@
           '<div class="project-body">' +
             '<h3>' + p.title + '</h3>' +
             '<p>' + p.description + '</p>' +
-            '<div class="progress"><span style="width:' + pct + '%"></span></div>' +
-            '<div class="progress-meta"><span>Raised <strong>' + fmt(p.raised) + '</strong></span>' +
-            '<span>Goal ' + fmt(p.goal) + '</span></div>' +
-            '<a href="donate.html" class="btn btn-accent btn-sm">Donate to this</a>' +
+            progress +
+            '<a href="donate.html" class="btn btn-accent btn-sm" style="margin-top:1rem">Support this</a>' +
           '</div>' +
         '</article>';
     }).join("");

@@ -3,11 +3,11 @@
    ========================================================= */
 :root {
   /* Brand palette */
-  --brand: #0f766e;          /* teal/emerald — trust */
-  --brand-dark: #115e59;
-  --brand-darker: #0b4a44;
-  --brand-light: #ccfbf1;
-  --brand-tint: #f0fdfa;
+  --brand: #1c9fde;          /* sky blue — matches HTF dove logo */
+  --brand-dark: #1580b5;
+  --brand-darker: #0f5f88;
+  --brand-light: #d6eefb;
+  --brand-tint: #f0f9fe;
 
   --accent: #f59e0b;         /* amber — action/donate */
   --accent-dark: #d97706;
@@ -19,7 +19,7 @@
 
   --bg: #ffffff;
   --bg-soft: #f9fafb;
-  --bg-mint: #f0fdfa;
+  --bg-mint: #eff8fe;
 
   --radius: 16px;
   --radius-sm: 10px;
@@ -95,7 +95,7 @@ p { color: var(--ink-soft); }
 .btn:hover { transform: translateY(-2px); }
 .btn-accent { background: var(--accent); color: #fff; box-shadow: 0 8px 20px rgba(245,158,11,.32); }
 .btn-accent:hover { background: var(--accent-dark); box-shadow: 0 12px 26px rgba(245,158,11,.4); }
-.btn-brand { background: var(--brand); color: #fff; box-shadow: 0 8px 20px rgba(15,118,110,.28); }
+.btn-brand { background: var(--brand); color: #fff; box-shadow: 0 8px 20px rgba(28,159,222,.3); }
 .btn-brand:hover { background: var(--brand-dark); }
 .btn-outline { background: transparent; color: var(--brand); border-color: var(--brand); }
 .btn-outline:hover { background: var(--brand); color: #fff; }
@@ -122,6 +122,8 @@ p { color: var(--ink-soft); }
   color: #fff; font-family: var(--font-head); font-weight: 700; font-size: 1rem;
   letter-spacing: .02em; box-shadow: var(--shadow-sm);
 }
+.brand-logo { height: 48px; width: auto; display: block; }
+.site-footer .brand-logo { background: #fff; border-radius: 10px; padding: 4px; }
 .brand-text { font-family: var(--font-head); font-weight: 600; font-size: 1.12rem; color: var(--ink); line-height: 1.1; }
 .brand-text strong { display: block; font-weight: 700; color: var(--brand); font-size: .98rem; }
 .nav { display: flex; align-items: center; gap: 2rem; }
@@ -138,15 +140,15 @@ p { color: var(--ink-soft); }
   display: flex; align-items: center;
   color: #fff;
   background:
-    linear-gradient(120deg, rgba(11,74,68,.92) 0%, rgba(15,118,110,.78) 55%, rgba(15,118,110,.35) 100%),
+    linear-gradient(120deg, rgba(15,95,136,.92) 0%, rgba(21,128,181,.78) 55%, rgba(28,159,222,.35) 100%),
     var(--brand-darker);
   background-size: cover; background-position: center;
   overflow: hidden;
 }
 .hero.has-photo {
   background:
-    linear-gradient(120deg, rgba(11,74,68,.92) 0%, rgba(15,118,110,.72) 55%, rgba(11,74,68,.45) 100%),
-    url("https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1600&q=80");
+    linear-gradient(120deg, rgba(15,95,136,.93) 0%, rgba(21,128,181,.78) 55%, rgba(15,95,136,.5) 100%),
+    url("assets/img/community.jpg");
   background-size: cover; background-position: center;
 }
 .hero-inner { padding: 4rem 0; max-width: 720px; }
